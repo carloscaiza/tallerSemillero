@@ -1,5 +1,6 @@
 package com.clearminds.cca.bdd;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,9 +19,14 @@ public class ConexionBDD {
 		
 		try {
 			
-			p.load(new FileReader("conexion.properties"));
+//			p.load(new FileReader("conexion.properties"));
+			p.load(new FileReader("D:\\CapacitacionCMC\\Repositorios\\tallerSemillero\\conexion.properties"));
 			
 			propiedad = p.getProperty(nombreProp);
+			
+			File f=new File("conexion.properties");
+//			System.out.println("ruta:"+f.getAbsoluteFile());
+
 			
 //			System.out.println("propiedad="+p.getProperty(nombreProp));
 			
