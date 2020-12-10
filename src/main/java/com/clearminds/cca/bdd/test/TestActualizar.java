@@ -14,7 +14,8 @@ public abstract class TestActualizar {
 		ServicioEstudiante srvEstudiante = new ServicioEstudiante();
 
 		try {
-			srvEstudiante.actualizarEstudiante(new Estudiante("Clear", "Minds",4, 20));	
+//			srvEstudiante.insertarEstudiante(new Estudiante("CARLOS", "CAIZA", 25));
+			srvEstudiante.actualizarEstudiante(new Estudiante("Clear", "Minds",1, 20));	
 //			srvEstudiante.eliminarEstudiante(new Estudiante("Clear", "Minds",3));	
 			
 //			ArrayList<Estudiante> estudiantes = null;

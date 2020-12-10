@@ -4,11 +4,15 @@ package com.clearminds.cca.servicios;
 import java.sql.SQLException;
 import java.sql.Statement;
 //import java.util.ArrayList;
+import java.util.Date;
 
 import com.clearminds.cca.dtos.Estudiante;
 import com.clearminds.cca.excepciones.BDDException;
+import com.clearminds.cca.utils.DateUtil;
 
 public class ServicioEstudiante extends ServicioBase {
+	
+	String fechaMod = DateUtil.obtenerFecha(new Date());
 	
 	public void insertarEstudiante(Estudiante estudiante) throws BDDException{
 		
@@ -18,7 +22,7 @@ public class ServicioEstudiante extends ServicioBase {
 		
 		try {
 			stmt = getConexion().createStatement();
-			String sql = "insert into estudiantes(nombre, apellido, edad) values ('"+ estudiante.getNombre()+"', '"+estudiante.getApellido()+"',"+estudiante.getEdad()+")";
+			String sql = "insert into estudiantes(nombre, apellido, edad, fecha_modificacion) values ('"+ estudiante.getNombre()+"', '"+estudiante.getApellido()+"',"+estudiante.getEdad()+", '"+fechaMod+"'"+")";
 			System.out.println("Script: " +sql);
 			
 			stmt.executeUpdate(sql);
@@ -39,7 +43,7 @@ public class ServicioEstudiante extends ServicioBase {
 		
 		try {
 			stmt = getConexion().createStatement();
-			String sql = "update estudiantes set nombre='"+estudiante.getNombre()+"' , apellido='"+ estudiante.getApellido() +"', edad="+estudiante.getEdad()+" where id="+estudiante.getNumero(); 
+			String sql = "update estudiantes set nombre='"+estudiante.getNombre()+"' , apellido='"+ estudiante.getApellido() +"', edad="+estudiante.getEdad()+", fecha_modificacion='"+fechaMod+"' where id="+estudiante.getNumero(); 
 			System.out.println("Script: " +sql);
 			
 			stmt.executeUpdate(sql);
