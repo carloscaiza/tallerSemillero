@@ -39,8 +39,6 @@ public class ServicioBase {
 
 	public void setConexion(Connection conexion) {
 		this.conexion = conexion;
-	}
-	
-	
+	}		
 	
 }
